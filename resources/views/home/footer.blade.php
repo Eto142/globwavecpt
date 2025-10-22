@@ -5,10 +5,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <div class="footer-logo">
-                        <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 10L30 30L40 10H50L60 30L70 10H80L90 30L100 10" stroke="#52afee" stroke-width="3" stroke-linecap="round"/>
-                            <text x="10" y="35" fill="#f8f9fa" font-family="Raleway" font-size="18" font-weight="bold">GCOWW</text>
-                        </svg>
+                     <img src="logo.png" alt="GCOWW Logo" style="width:150px; height:40px; object-fit:contain;">
                     </div>
                     <p class="footer-link">
                         Are you looking for a stable, reliable, guaranteed weekly income? Global Wave Capital offers a range of options to make the most off your investment. Get involved to discover the power of trading.
@@ -45,7 +42,7 @@
                     </div>
                     <div class="contact-info">
                         <i class="fas fa-envelope"></i>
-                        <span>support@globalcryptoww.com</span>
+                        <span>support@globwavecpt.online</span>
                     </div>
                     <div class="mt-4">
                         <h6 class="text-light mb-3">Follow Us</h6>
