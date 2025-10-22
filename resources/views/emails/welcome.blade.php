@@ -12,10 +12,10 @@
     <!-- Header -->
     <div style="background-color: #052c65; color: #ffffff; text-align: center; padding: 30px 20px;">
       <h1 style="margin: 0; font-size: 24px; font-weight: 600;">
-        <span style="color: #00bfff;">Global</span> Wave <span style="color: #ffffff;">Capital</span>
+        <span style="color: #00bfff;">Glob</span> Wave <span style="color: #ffffff;">C</span>
       </h1>
       <p style="margin: 8px 0 0; font-size: 14px; color: #cfd8e3;">
-        Financial Clarity. Global Perspective.
+        Glob Perspective.
       </p>
     </div>
 
@@ -31,13 +31,7 @@
         You can now sign in to your dashboard to view your account details and continue your activities.
       </p>
 
-      <div style="text-align: center; margin: 25px 0;">
-        <a href="{{ route('user.home') }}" 
-           style="background-color: #0a58ca; color: #fff; text-decoration: none; padding: 12px 25px; border-radius: 5px; font-size: 15px; display: inline-block;">
-          Access Dashboard
-        </a>
-      </div>
-
+    
       <p style="font-size: 14px; color: #666;">
         For any questions, please reply to this email or contact our support team through your account dashboard.
       </p>
