@@ -320,7 +320,7 @@
                         <p class="contact-detail green">info@globwavecpt.online</p>
                     </div>
                     
-                    <div class="contact-info-card">
+                    {{-- <div class="contact-info-card">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
@@ -328,7 +328,7 @@
                         <p class="contact-detail">+1 (555) 123-4567</p>
                         <p class="contact-detail">+44 20 7946 0958</p>
                     </div>
-                    
+                     --}}
                     <div class="contact-info-card">
                         <div class="contact-icon">
                             <i class="fas fa-clock"></i>
