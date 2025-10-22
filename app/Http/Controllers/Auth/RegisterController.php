@@ -45,7 +45,7 @@ public function register(Request $request)
         ]);
 
         // Redirect to update details page with success message
-        return redirect()->route('update.details')->with('success', 'Registration successful! Please update your details.');
+        return redirect()->route('step2')->with('success', 'Registration successful! Please update your details.');
 
     } catch (\Throwable $e) {
         \Log::error('Registration error:', [

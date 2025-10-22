@@ -71,7 +71,7 @@ public function login(Request $request)
 
             // Check if user is activated
             if ($user->is_activated == 0) {
-                return redirect()->route('update.details')
+                return redirect()->route('step2')
                     ->with('info', 'Please update your details to activate your account.');
             }
 

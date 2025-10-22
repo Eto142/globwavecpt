@@ -52,6 +52,9 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 // Logout Route
 Route::post('/logout', [App\Http\Controllers\Auth\AuthController::class, 'logout'])->name('user.logout');
 
+
+Route::get('/step2', [AuthController::class, 'showpersonalDetailsForm'])->name('step2');
+
 Route::get('/update-details', [AuthController::class, 'showpersonalDetailsForm'])->name('update.details');
 Route::get('/verify', [AuthController::class, 'showVerifyForm'])->name('verify.form');
 Route::post('/verify', [AuthController::class, 'verifyCode'])->name('verify.code');
