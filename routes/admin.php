@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CreditDebitController;
 use App\Http\Controllers\Admin\DebitProfitController;
 use App\Http\Controllers\Admin\DepositController;
 use App\Http\Controllers\Admin\MailController;
+use App\Http\Controllers\Admin\ManageDepositController;
 use App\Http\Controllers\Admin\ManageEscrowController;
 use App\Http\Controllers\Admin\ManageLoanController;
 use App\Http\Controllers\Admin\ManagePaymentController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Admin\SendEmailController;
 use App\Http\Controllers\Admin\WalletController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -35,6 +37,8 @@ use Illuminate\Support\Facades\Route;
         Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
         Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
     });
+
+
 
 
 
@@ -136,6 +140,8 @@ Route::post('/send-email', [SendEmailController::class, 'send'])->name('send.ema
 
     Route::post('/choose-wallet', [WalletController::class, 'chooseWallet'])->name('choose.wallet');
 
+
+    Route::get('/deposits', [ManageDepositController::class, 'UsersDepositHistory'])->name('deposits'); // becomes 'admin.user'
 
 });
 });

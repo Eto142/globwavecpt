@@ -11,7 +11,7 @@
                         </svg>
                     </div>
                     <p class="footer-link">
-                        Are you looking for a stable, reliable, guaranteed weekly income? Global Crypto Organization World Wide offers a range of options to make the most off your investment. Get involved to discover the power of trading.
+                        Are you looking for a stable, reliable, guaranteed weekly income? Global Wave Capital offers a range of options to make the most off your investment. Get involved to discover the power of trading.
                     </p>
                 </div>
                 <div class="col-lg-4 mb-4">
@@ -61,7 +61,7 @@
             <hr class="my-4">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="text-muted mb-0">© 2023 Global Crypto Organization World Wide. All rights reserved.</p>
+                    <p class="text-muted mb-0">© 2023 Global Wave Capital. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <div class="footer-links">

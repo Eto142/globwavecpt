@@ -36,40 +36,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($user_deposits as $deposit)
-                        <tr>
-                            <td>{{ $deposit->id }}</td>
-                            <td>{{ number_format($deposit->amount, 8, '.', ',') }}</td>
-                            <td>{{ strtoupper($deposit->crypto_type) }}</td>
-                            <td>
-                                @if($deposit->front_check)
-                                <a href="{{ asset($deposit->front_check) }}" target="_blank" class="btn btn-sm btn-outline-primary me-1">
-                                    Front
-                                </a>
-                                @endif
-                                @if($deposit->back_check)
-                                <a href="{{ asset($deposit->back_check) }}" target="_blank" class="btn btn-sm btn-outline-primary">
-                                    Back
-                                </a>
-                                @endif
-                            </td>
-                            <td>
-                                @if ($deposit->status == 1)
-                                <span class="badge bg-success">Approved</span>
-                                @else
-                                <span class="badge bg-warning">Pending</span>
-                                @endif
-                            </td>
-                            <td>{{ \Carbon\Carbon::parse($deposit->created_at)->format('D, M j, Y g:i A') }}</td>
-                        </tr>
-                        @endforeach
-                        
-                        @if($user_deposits->isEmpty())
-                        <tr>
-                            <td colspan="6" class="text-center py-4">No deposits found</td>
-                        </tr>
-                        @endif
-                    </tbody>
+    @foreach($user_deposits as $deposit)
+    <tr>
+        <td>{{ $deposit->id }}</td>
+        <td>${{ number_format($deposit->amount, 2) }}</td>
+        <td>{{ ucfirst($deposit->payment_method) }}</td>
+        <td>
+            @if($deposit->image)
+                <a href="{{ asset($deposit->image) }}" target="_blank">
+                    <img src="{{ asset($deposit->image) }}" alt="Proof" width="50" height="50" class="rounded shadow-sm">
+                </a>
+            @else
+                <span class="text-muted">No proof</span>
+            @endif
+        </td>
+        <td>
+            @if($deposit->status == 'approved' || $deposit->status == 1)
+                <span class="badge bg-success">Approved</span>
+            @elseif($deposit->status == 'rejected' || $deposit->status == 2)
+                <span class="badge bg-danger">Rejected</span>
+            @else
+                <span class="badge bg-warning">Pending</span>
+            @endif
+        </td>
+        <td>{{ \Carbon\Carbon::parse($deposit->created_at)->format('D, M j, Y g:i A') }}</td>
+    </tr>
+    @endforeach
+
+    @if($user_deposits->isEmpty())
+    <tr>
+        <td colspan="6" class="text-center py-4">No deposits found</td>
+    </tr>
+    @endif
+</tbody>
+
                 </table>
             </div>
             

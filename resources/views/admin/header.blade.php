@@ -335,7 +335,7 @@
                 <span>Manage Users</span>
             </a>
             
-            <a href="{{ route('admin.loans') }}" class="nav-link">
+            <a href="{{ route('admin.deposits') }}" class="nav-link">
                 <i class="fas fa-piggy-bank"></i>
                 <span>Escrow</span>
             </a>

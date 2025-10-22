@@ -2,7 +2,7 @@
                 <!--<div class="nk-footer">-->
                 <!--    <div class="container-fluid">-->
                 <!--        <div class="nk-footer-wrap">-->
-                <!--            <div class="nk-footer-copyright"> &copy; 2024 Universal-cptpro.-->
+                <!--            <div class="nk-footer-copyright"> &copy; 2024 Global Wave Capital.-->
                 <!--            </div>-->
                             
                 <!--        </div>-->
@@ -19,7 +19,7 @@
      <!--Email fixed -->
 <!--           <div id="mybutton">-->
 
-<!--<a href="mailto:support@Universal-cptpro.org"><img src="email.png" class="feedback" alt="email"/></a>-->
+<!--<a href="mailto:support@Global Wave Capital.org"><img src="email.png" class="feedback" alt="email"/></a>-->
 <!--</div>-->
 <!--        <style>-->
 <!--         .feedback {-->

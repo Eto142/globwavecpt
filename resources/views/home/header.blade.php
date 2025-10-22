@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Crypto Organization World Wide | Premium Crypto Trading</title>
+    <title>Global Wave Capital | Premium Crypto Trading</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,10 +18,8 @@
         <div class="loader-content">
             <div class="loader-logo">
                 <!-- You can replace this with your own logo -->
-                <svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 10L30 30L40 10H50L60 30L70 10H80L90 30L100 10" stroke="#52afee" stroke-width="4" stroke-linecap="round"/>
-                    <text x="10" y="35" fill="#52afee" font-family="Arial" font-size="14" font-weight="bold">GCOWW</text>
-                </svg>
+              <img src="logo.png" alt="GCOWW Logo" style="height:40px; width:auto;">
+
             </div>
             <div class="loading-dot"></div>
             <div class="loading-dot"></div>
@@ -34,11 +32,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <!-- You can replace this with your own logo -->
-                    <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 10L30 30L40 10H50L60 30L70 10H80L90 30L100 10" stroke="#52afee" stroke-width="3" stroke-linecap="round"/>
-                        <text x="10" y="35" fill="#f8f9fa" font-family="Raleway" font-size="18" font-weight="bold">GCOWW</text>
-                    </svg>
+                   <!-- You can replace this with your own logo -->
+<img src="logo.png" alt="GCOWW Logo" style="width:150px; height:40px; object-fit:contain;">
+
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>

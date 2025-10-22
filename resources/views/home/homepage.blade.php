@@ -233,7 +233,7 @@
                     <p class="mb-4">
                         We provide fastest trading using modern technologies. No delays in order executions and most
                         accurate quotes. Our trading platform is available around the clock and on weekends.
-                        Global Crypto Organization World Wide customer service is available 24/7.
+                        Global Wave Capital customer service is available 24/7.
                     </p>
                     <ul class="features-list">
                         <li>Technical analysis tools: 4 chart types, 8 indicators, trend lines</li>
@@ -430,12 +430,12 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">Happy investors sharing their experiences with Global Crypto Organization World Wide</p>
+            <p class="section-subtitle">Happy investors sharing their experiences with Global Wave Capital</p>
             
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <div class="testimonial-card">
-                        <p class="testimonial-text">"I got my first investment profit of $15k. Big thanks to you guys at Global Crypto Organization World Wide! The platform is intuitive and their support team is always available."</p>
+                        <p class="testimonial-text">"I got my first investment profit of $15k. Big thanks to you guys at Global Wave Capital! The platform is intuitive and their support team is always available."</p>
                         <div class="testimonial-author">
                             <img src="https://i.pravatar.cc/100?img=1" alt="Robert Pope" class="testimonial-avatar">
                             Robert Pope
@@ -444,7 +444,7 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <div class="testimonial-card">
-                        <p class="testimonial-text">"Big shout out to you guys at Global Crypto Organization World Wide. I just got my Bitcoin back after a trading error. I love you guys! The insurance policy really works."</p>
+                        <p class="testimonial-text">"Big shout out to you guys at Global Wave Capital. I just got my Bitcoin back after a trading error. I love you guys! The insurance policy really works."</p>
                         <div class="testimonial-author">
                             <img src="https://i.pravatar.cc/100?img=2" alt="Steve Walter" class="testimonial-avatar">
                             Steve Walter
@@ -453,7 +453,7 @@
                 </div>
                 <div class="col-lg-4 mb-4">
                     <div class="testimonial-card">
-                        <p class="testimonial-text">"Thank you Global Crypto Organization World Wide. I'm debt free. I have been able to repay my loan of $64,000! The Gold plan was the best investment decision I've made."</p>
+                        <p class="testimonial-text">"Thank you Global Wave Capital. I'm debt free. I have been able to repay my loan of $64,000! The Gold plan was the best investment decision I've made."</p>
                         <div class="testimonial-author">
                             <img src="https://i.pravatar.cc/100?img=3" alt="Veronica Keith" class="testimonial-avatar">
                             Veronica Keith
