@@ -33,7 +33,7 @@
             <div class="container">
                 <a class="navbar-brand" href="/">
                    <!-- You can replace this with your own logo -->
-<img src="logo.png" alt="GCOWW Logo" style="width:150px; height:40px; object-fit:contain;">
+<img src="logo.png" alt="G Logo" style="width:150px; height:40px; object-fit:contain;">
 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

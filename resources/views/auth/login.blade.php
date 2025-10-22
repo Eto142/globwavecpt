@@ -189,7 +189,7 @@
                             </div>
                             
                             <div class="text-center">
-                                <a href="#" class="text-primary">Forgot your password?</a>
+                                <a href="{{ route('forgot.password.form') }}" class="text-primary">Forgot your password?</a>
                             </div>
                         </form>
                     </div>

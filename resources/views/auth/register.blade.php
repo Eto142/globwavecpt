@@ -176,11 +176,11 @@
                             <div class="mb-3">
                                 <label for="currency" class="form-label">Preferred Currency</label>
                                 <select class="form-select" id="currency" name="currency" required>
-                                    <option value="">Select currency</option>
-                                    <option value="USD">USD - US Dollar</option>
-                                    <option value="EUR">EUR - Euro</option>
-                                    <option value="GBP">GBP - British Pound</option>
-                                    <option value="JPY">JPY - Japanese Yen</option>
+                                     <option value="">Select Currency</option>
+    <option value="$">USD - US Dollar</option>
+    <option value="€">EUR - Euro</option>
+    <option value="£">GBP - British Pound</option>
+    <option value="¥">JPY - Japanese Yen</option>
                                 </select>
                             </div>
                             

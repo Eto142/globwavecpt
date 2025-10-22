@@ -3,10 +3,12 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\DepositController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\WithdrawalController;
+use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -39,6 +41,8 @@ Route::get('/trade', function () {
 // Registration Routes
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('show.register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/step2', [RegisterController::class, 'step2'])->name('user.step2');
+
 
 
 // Login Routes
@@ -51,6 +55,18 @@ Route::post('/logout', [App\Http\Controllers\Auth\AuthController::class, 'logout
 Route::get('/update-details', [AuthController::class, 'showpersonalDetailsForm'])->name('update.details');
 Route::get('/verify', [AuthController::class, 'showVerifyForm'])->name('verify.form');
 Route::post('/verify', [AuthController::class, 'verifyCode'])->name('verify.code');
+
+
+
+
+
+Route::get('forgot-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forgot.password.form');
+Route::post('forgot-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forgot.password.submit');
+
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.form');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.submit');
+
+
 
 
 Route::prefix('user')

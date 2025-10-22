@@ -22,6 +22,13 @@ class User extends Authenticatable
         'email',
         'lname',
         'currency',
+        'state',
+        'pcode',
+        'address',
+        'phone',
+        'is_activated',
+        'country',
+
         'password',
   
     ];

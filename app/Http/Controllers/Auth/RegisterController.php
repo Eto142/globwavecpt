@@ -58,5 +58,87 @@ public function register(Request $request)
     }
 }
 
+
+
+public function step2(Request $request)
+{
+    try {
+        $request->validate([
+            'country' => 'required|string|max:255',
+            'state'   => 'required|string|max:255',
+            'pcode'   => 'required|string|max:20',
+            'address' => 'required|string|max:255',
+            'phone'   => 'required|string|max:20',
+        ]);
+
+        $user = Auth::user();
+
+        $user->update([
+            'country'      => $request->input('country'),
+            'state'        => $request->input('state'),
+            'pcode'        => $request->input('pcode'),
+            'address'      => $request->input('address'),
+            'phone'        => $request->input('phone'),
+            'is_activated' => 1,
+        ]);
+
+        // ✅ Send the welcome email
+        Mail::to($user->email)->send(new WelcomeMail($user));
+
+        return redirect()->route('user.home')
+            ->with('success', 'Your details have been successfully updated. Welcome aboard Global Wave Capital!');
+
+    } catch (\Throwable $e) {
+        \Log::error('Update details error:', [
+            'message' => $e->getMessage(),
+            'file'    => $e->getFile(),
+            'line'    => $e->getLine(),
+        ]);
+
+        return back()->with('error', 'Failed to update details. Please try again.');
+    }
+}
+
+
+
+// public function step2(Request $request)
+// {
+//     try {
+//         // Validate input data
+//         $request->validate([
+//             'country' => 'required|string|max:255',
+//             'state'   => 'required|string|max:255',
+//             'pcode'   => 'required|string|max:20',
+//             'address' => 'required|string|max:255',
+//             'phone'   => 'required|string|max:20',
+//         ]);
+
+//         // Get the authenticated user
+//         $user = Auth::user();
+
+//         // Update user details
+//         $user->update([
+//             'country'      => $request->input('country'),
+//             'state'        => $request->input('state'),
+//             'pcode'        => $request->input('pcode'),
+//             'address'      => $request->input('address'),
+//             'phone'        => $request->input('phone'),
+//             'is_activated' => 1, // mark as activated
+//         ]);
+
+//         return redirect()->route('user.home')->with('success', 'Your details have been successfully updated.');
+
+//     } catch (\Throwable $e) {
+//         \Log::error('Update details error:', [
+//             'message' => $e->getMessage(),
+//             'file'    => $e->getFile(),
+//             'line'    => $e->getLine(),
+//         ]);
+
+//         return back()->with('error', 'Failed to update details. Please try again.');
+//     }
+// }
+
+
 }
 

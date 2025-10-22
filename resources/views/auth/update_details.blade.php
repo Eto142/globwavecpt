@@ -126,7 +126,7 @@
                         <p class="text-muted mb-0">Complete your profile information</p>
                     </div>
                     <div class="card-body p-4">
-                        <form method="POST" action="{{route('step2')}}" id="updateDetails" class="needs-validation" novalidate>
+                        <form method="POST" action="{{route('user.step2')}}" id="updateDetails" class="needs-validation" novalidate>
                             @csrf
                             <div class="mb-3">
                                 <div class="form-floating">
@@ -432,7 +432,7 @@
         </div>
     </div>
 
-    <script>
+    {{-- <script>
         // Form validation and submission
         document.getElementById('updateDetails').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -499,6 +499,6 @@
                 });
             }, false);
         })();
-    </script>
+    </script> --}}
 </body>
 </html>
