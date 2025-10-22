@@ -19,7 +19,7 @@ class WelcomeMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Welcome to Global Wave Capital!')
+        return $this->subject('Welcome to GWC!')
                     ->view('emails.welcome');
     }
 }
