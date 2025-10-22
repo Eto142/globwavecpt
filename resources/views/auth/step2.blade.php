@@ -125,6 +125,29 @@
                         <h4 class="mb-1">Update Your Details</h4>
                         <p class="text-muted mb-0">Complete your profile information</p>
                     </div>
+
+                    @if (session('success'))
+    <div style="background-color: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div style="background-color: #f8d7da; color: #842029; border: 1px solid #f5c2c7; padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if ($errors->any())
+    <div style="background-color: #fff3cd; color: #664d03; border: 1px solid #ffecb5; padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+        <ul style="margin: 0; padding-left: 20px;">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
                     <div class="card-body p-4">
                         <form method="POST" action="{{route('user.step2')}}" id="updateDetails" class="needs-validation" novalidate>
                             @csrf
@@ -419,7 +442,7 @@
                                 <button class="btn btn-update" type="submit" id="submitBtn">
                                     <span id="btnText">Update Details</span>
                                     <div id="btnLoading" class="spinner-border spinner-border-sm text-light ms-2 d-none" role="status">
-                                        <span class="visually-hidden">Loading...</span>
+                                       
                                     </div>
                                 </button>
                             </div>
