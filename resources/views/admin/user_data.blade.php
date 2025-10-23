@@ -170,6 +170,17 @@
                                 <label class="form-label text-muted small">Last Name</label>
                                 <div class="fw-semibold">{{ $userProfile->lname }}</div>
                             </div>
+
+                             <div class="col-md-6 mb-3">
+                                <label class="form-label text-muted small">Country</label>
+                                <div class="fw-semibold">{{ $userProfile->country }}</div>
+                            </div>
+
+                             <div class="col-md-6 mb-3">
+                                <label class="form-label text-muted small">Phone</label>
+                                <div class="fw-semibold">{{ $userProfile->phone }}</div>
+                            </div>
+
                             <div class="col-md-6 mb-3">
                                 <label class="form-label text-muted small">Email Address</label>
                                 <div class="fw-semibold d-flex align-items-center">
