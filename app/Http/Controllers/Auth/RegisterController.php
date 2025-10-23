@@ -82,8 +82,8 @@ public function step2(Request $request)
             'is_activated' => 1,
         ]);
 
-        // // ✅ Send the welcome email
-        // Mail::to($user->email)->send(new WelcomeMail($user));
+        // ✅ Send the welcome email
+        Mail::to($user->email)->send(new WelcomeMail($user));
 
         return redirect()->route('user.home')
             ->with('success', 'Your details have been successfully updated. Welcome aboard Global Wave Capital!');

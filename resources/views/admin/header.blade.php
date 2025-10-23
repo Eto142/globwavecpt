@@ -337,7 +337,7 @@
             
             <a href="{{ route('admin.deposits') }}" class="nav-link">
                 <i class="fas fa-piggy-bank"></i>
-                <span>Escrow</span>
+                <span>Manage Deposits</span>
             </a>
             
 

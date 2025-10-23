@@ -11,6 +11,7 @@ use App\Models\Plan;
 use App\Models\Profit;
 use App\Models\Refferal;
 use App\Models\Transaction;
+use App\Models\Wallet;
 use App\Models\Withdrawal;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
@@ -34,10 +35,62 @@ class DepositController extends Controller
 
 
 
-     public function getDeposit(Request $request)
-    {
+//      public function getDeposit(Request $request)
+//     {
 
-       $btcPrice = 0;
+//        $btcPrice = 0;
+//     $ethPrice = 0;
+//     $client = new Client();
+
+//     try {
+//         // Fetch Bitcoin price from CoinGecko API
+//         $response = $client->get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+//         $btcData = json_decode($response->getBody(), true);
+//         $btcPrice = $btcData['bitcoin']['usd'] ?? 0;
+//     } catch (\GuzzleHttp\Exception\RequestException $e) {
+//         \Log::error('Failed to fetch Bitcoin price: ' . $e->getMessage());
+//     }
+
+//     try {
+//         // Fetch Ethereum price from CoinGecko API
+//         $response2 = $client->get('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd');
+//         $ethData = json_decode($response2->getBody(), true);
+//         $ethPrice = $ethData['ethereum']['usd'] ?? 0;
+//     } catch (\GuzzleHttp\Exception\RequestException $e) {
+//         \Log::error('Failed to fetch Ethereum price: ' . $e->getMessage());
+//     }
+
+//     // Calculate user balance
+//     $userId = Auth::id();
+//     $credit = Transaction::where('user_id', $userId)->where('status', '1')->sum('credit');
+//     $debit = Transaction::where('user_id', $userId)->where('status', '1')->sum('debit');
+//     $userBalance = $credit - $debit;
+     
+//      $wallets = Wallet::all();
+
+//     // Prepare data for the view
+//     $data = [
+//         'user_balance' => $userBalance,
+//         'btc_balance' => $btcPrice > 0 ? $userBalance / $btcPrice : 0,
+//         'amount' => $request->input('amount'),
+//         'btc_amount' => $btcPrice > 0 ? $request->input('amount') / $btcPrice : 0,
+//         'eth_amount' => $ethPrice > 0 ? $request->input('amount') / $ethPrice : 0,
+//         'item' => $request->input('item'),
+//         // 'payment' => DB::table('users')->where('id', 4)->get(),  // Use first() for a single record
+//     ];
+//   // Return the appropriate view
+//     return $data['item'] === 'Bank' ? 
+//         view('user.deposit.bank', $data) : 
+//         view('user.deposit.payment', $data);
+// }
+
+
+
+
+
+public function getDeposit(Request $request)
+{
+    $btcPrice = 0;
     $ethPrice = 0;
     $client = new Client();
 
@@ -47,7 +100,7 @@ class DepositController extends Controller
         $btcData = json_decode($response->getBody(), true);
         $btcPrice = $btcData['bitcoin']['usd'] ?? 0;
     } catch (\GuzzleHttp\Exception\RequestException $e) {
-        \Log::error('Failed to fetch Bitcoin price: ' . $e->getMessage());
+        Log::error('Failed to fetch Bitcoin price: ' . $e->getMessage());
     }
 
     try {
@@ -56,7 +109,7 @@ class DepositController extends Controller
         $ethData = json_decode($response2->getBody(), true);
         $ethPrice = $ethData['ethereum']['usd'] ?? 0;
     } catch (\GuzzleHttp\Exception\RequestException $e) {
-        \Log::error('Failed to fetch Ethereum price: ' . $e->getMessage());
+        Log::error('Failed to fetch Ethereum price: ' . $e->getMessage());
     }
 
     // Calculate user balance
@@ -65,20 +118,25 @@ class DepositController extends Controller
     $debit = Transaction::where('user_id', $userId)->where('status', '1')->sum('debit');
     $userBalance = $credit - $debit;
 
+    // Fetch wallet details (e.g., BTC, ETH, USDT, etc.)
+    $wallets = Wallet::all(['method', 'address']); 
+    // assuming you have these columns: name, address, qr_code, network
+
     // Prepare data for the view
     $data = [
         'user_balance' => $userBalance,
-        'btc_balance' => $btcPrice > 0 ? $userBalance / $btcPrice : 0,
-        'amount' => $request->input('amount'),
-        'btc_amount' => $btcPrice > 0 ? $request->input('amount') / $btcPrice : 0,
-        'eth_amount' => $ethPrice > 0 ? $request->input('amount') / $ethPrice : 0,
-        'item' => $request->input('item'),
-        'payment' => DB::table('users')->where('id', 4)->get(),  // Use first() for a single record
+        'btc_balance'  => $btcPrice > 0 ? $userBalance / $btcPrice : 0,
+        'amount'       => $request->input('amount'),
+        'btc_amount'   => $btcPrice > 0 ? $request->input('amount') / $btcPrice : 0,
+        'eth_amount'   => $ethPrice > 0 ? $request->input('amount') / $ethPrice : 0,
+        'item'         => $request->input('item'),
+        'wallets'      => $wallets,
     ];
-  // Return the appropriate view
-    return $data['item'] === 'Bank' ? 
-        view('user.deposit.bank', $data) : 
-        view('user.deposit.payment', $data);
+
+    // Return the appropriate view
+    return $data['item'] === 'Bank'
+        ? view('user.deposit.bank', $data)
+        : view('user.deposit.payment', $data);
 }
 
 
