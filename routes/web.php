@@ -38,16 +38,34 @@ Route::get('/trade', function () {
 
 
 
+// // Registration Routes
+// Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('show.register');
+// Route::post('/register', [RegisterController::class, 'register'])->name('register');
+// Route::post('/step2', [RegisterController::class, 'step2'])->name('user.step2');
+
+
+
+// // Login Routes
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [LoginController::class, 'login'])->name('login');
+
 // Registration Routes
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('show.register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
-Route::post('/step2', [RegisterController::class, 'step2'])->name('user.step2');
 
+// Step 2 (AUTH REQUIRED)
+Route::get('/step2', [RegisterController::class, 'showStep2Form'])
+    ->name('step2')
+    ->middleware('auth');
 
+Route::post('/step2', [RegisterController::class, 'step2'])
+    ->name('user.step2')
+    ->middleware('auth');
 
 // Login Routes
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+
 
 // Logout Route
 Route::post('/logout', [App\Http\Controllers\Auth\AuthController::class, 'logout'])->name('user.logout');
