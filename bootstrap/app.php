@@ -3,6 +3,8 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -10,14 +12,17 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__ . '/../routes/console.php',
         health: '/up',
         then: function ($router) {
-            // Include admin routes
             require __DIR__ . '/../routes/admin.php';
         }
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        // Register custom middleware aliases
         $middleware->alias([
-            'user' => \App\Http\Middleware\UserMiddleware::class,
+            // ✅ Laravel core
+            'auth'  => Authenticate::class,
+            'guest' => RedirectIfAuthenticated::class,
+
+            // ✅ Your custom middleware
+            'user'  => \App\Http\Middleware\UserMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
