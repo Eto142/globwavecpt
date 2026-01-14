@@ -23,10 +23,15 @@ class RegisterController extends Controller
 
 
 
+
+
+
+
+
+
 public function register(Request $request)
 {
     try {
-        // Validate form inputs
         $request->validate([
             'name'      => 'required|string|max:255',
             'lname'     => 'required|string|max:255',
@@ -35,17 +40,20 @@ public function register(Request $request)
             'password'  => 'required|string|min:8|confirmed',
         ]);
 
-        // Create new user
         $user = User::create([
-            'name'      => $request->input('name'),
-            'lname'     => $request->input('lname'),
-            'currency'  => $request->input('currency'),
-            'email'     => $request->input('email'),
-            'password'  => bcrypt($request->input('password')),
+            'name'      => $request->name,
+            'lname'     => $request->lname,
+            'currency'  => $request->currency,
+            'email'     => $request->email,
+            'password'  => bcrypt($request->password),
         ]);
 
-        // Redirect to update details page with success message
-        return redirect()->route('step2')->with('success', 'Registration successful! Please update your details.');
+        // ✅ AUTO LOGIN (THIS IS THE MISSING PIECE)
+        Auth::login($user);
+
+        // Redirect to step 2
+        return redirect()->route('step2')
+            ->with('success', 'Registration successful! Please update your details.');
 
     } catch (\Throwable $e) {
         \Log::error('Registration error:', [
@@ -59,45 +67,41 @@ public function register(Request $request)
 }
 
 
-
-// public function step2(Request $request)
+// public function register(Request $request)
 // {
 //     try {
+//         // Validate form inputs
 //         $request->validate([
-//             'country' => 'required|string|max:255',
-//             'state'   => 'required|string|max:255',
-//             'pcode'   => 'required|string|max:20',
-//             'address' => 'required|string|max:255',
-//             'phone'   => 'required|string|max:20',
+//             'name'      => 'required|string|max:255',
+//             'lname'     => 'required|string|max:255',
+//             'currency'  => 'required|string|max:255',
+//             'email'     => 'required|email|unique:users,email',
+//             'password'  => 'required|string|min:8|confirmed',
 //         ]);
 
-//         $user = Auth::user();
-
-//         $user->update([
-//             'country'      => $request->input('country'),
-//             'state'        => $request->input('state'),
-//             'pcode'        => $request->input('pcode'),
-//             'address'      => $request->input('address'),
-//             'phone'        => $request->input('phone'),
-//             'is_activated' => 1,
+//         // Create new user
+//         $user = User::create([
+//             'name'      => $request->input('name'),
+//             'lname'     => $request->input('lname'),
+//             'currency'  => $request->input('currency'),
+//             'email'     => $request->input('email'),
+//             'password'  => bcrypt($request->input('password')),
 //         ]);
 
-//         // ✅ Send the welcome email
-//         Mail::to($user->email)->send(new WelcomeMail($user));
-
-//         return redirect()->route('user.home')
-//             ->with('success', 'Your details have been successfully updated. Welcome aboard Global Wave Capital!');
+//         // Redirect to update details page with success message
+//         return redirect()->route('step2')->with('success', 'Registration successful! Please update your details.');
 
 //     } catch (\Throwable $e) {
-//         \Log::error('Update details error:', [
+//         \Log::error('Registration error:', [
 //             'message' => $e->getMessage(),
 //             'file'    => $e->getFile(),
 //             'line'    => $e->getLine(),
 //         ]);
 
-//         return back()->with('error', 'Failed to update details. Please try again.');
+//         return back()->with('error', 'Registration failed. Please try again.');
 //     }
 // }
+
 
 
 public function step2(Request $request)
